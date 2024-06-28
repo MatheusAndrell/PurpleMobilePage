@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './css/style.css';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Theme from './components/Theme'; 
+import Header from './components/Header';
+import HeroBanner from './components/HeroBanner';
+import WelcomeMessage from './components/WelcomeMessage';
+import AppBenefits from './components/AppBenefits';
+import InteractiveMenu from './components/InteractiveMenu';
+import KeyFeatures from './components/KeyFeatures';
+import LatestNews from './components/LatestNews';
+import OurPortfolio from './components/OurPortfolio';
+import Showcase from './components/Showcase';
+import GetInTouch from './components/GetInTouch';
+import ThankYouNote from './components/ThankYouNote';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="body-container">
+        <Header />
+        <HeroBanner />
+        <WelcomeMessage />
+        <AppBenefits />
+        <InteractiveMenu />
+        <KeyFeatures />
+        <LatestNews />
+        <OurPortfolio />
+        <Showcase />
+        <GetInTouch />
+        <ThankYouNote />
+      </div>
+    </ThemeProvider>
   );
 }
 
